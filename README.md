@@ -14,10 +14,11 @@ This project is intended to be used **only** in isolated lab environments (virtu
 
 ## Features
 
-* Capture keyboard events and save them to a local log file.
-* Simple configuration options (log filename, sampling or filtering options).
-* Basic command-line interface for starting/stopping logging.
-* Guidance on detection and prevention (see **Detection & Prevention** section).
+* **Keystroke Count per Word:** Tracks how many times each distinct word was typed during a logging session and stores counts in a structured summary file.
+* **Instant Letter Capture:** Records the exact letters pressed at any given instant (timestamped), allowing inspection of input at precise moments.
+* **Paragraph Reconstruction:** Reassembles logged keystrokes into paragraph-style content so you can view the typed text in a human-readable format (with timestamps and simple formatting).
+* **Configurable Output:** Choose separate outputs for counts, instant letter logs, and reconstructed paragraphs (e.g., `keyfreq.txt`, `keylog.txt`, `keyparagraph.txt`).
+* **Filtering & Privacy:** Options to exclude certain keys (e.g., passwords or sensitive inputs) and keep all logs local for privacy and safety.
 
 ---
 
@@ -32,16 +33,16 @@ This project is intended to be used **only** in isolated lab environments (virtu
 
 ```bash
 # clone the repo
-git clone https://github.com/Eswar-2006/Keylogger.git
-cd Keylogger
+git clone https://github.com/Eswar-2006/keylogger.git
+cd <repo-name>
 
 # create a virtual environment (recommended)
 python -m venv venv
 source venv/bin/activate   # Linux/macOS
 venv\\Scripts\\activate  # Windows
 
-# install dependencies
-pip install -r requirements.txt
+# install dependencies in vscode and run the keylogger.py file
+pip install pynput
 ```
 
 ---
@@ -54,7 +55,7 @@ pip install -r requirements.txt
 # Basic run (example)
 python keylogger.py --output logs.txt
 
-# Stop the logger (Ctrl+C) and inspect logs.txt
+# Stop the logger (esc) and inspect logs.txt
 ```
 
 Replace `keylogger.py` and flags with your actual filenames and arguments.
